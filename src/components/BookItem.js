@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BookContext } from '../contexts/BookContext';
 
-const BookItem = ({ book, removeBook }) => {
+const BookItem = ({ book }) => {
+  const { dispatch } = useContext(BookContext);
+
   const handleClick = () => {
-    removeBook(book.id);
+    // removeBook(book.id);
+    dispatch({ type: 'REMOVE_BOOK', id: book.id });
   };
 
   return (
